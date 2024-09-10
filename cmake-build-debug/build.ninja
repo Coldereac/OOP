@@ -49,11 +49,11 @@ cmake_ninja_workdir = /home/malinka/CLionProjects/OOP/cmake-build-debug/
 
 build cmake_object_order_depends_target_OOP: phony || CMakeFiles/OOP.dir
 
-build CMakeFiles/OOP.dir/Prakt_1/main.cpp.o: CXX_COMPILER__OOP_unscanned_Debug /home/malinka/CLionProjects/OOP/Prakt_1/main.cpp || cmake_object_order_depends_target_OOP
-  DEP_FILE = CMakeFiles/OOP.dir/Prakt_1/main.cpp.o.d
+build CMakeFiles/OOP.dir/Prakt_3/main.cpp.o: CXX_COMPILER__OOP_unscanned_Debug /home/malinka/CLionProjects/OOP/Prakt_3/main.cpp || cmake_object_order_depends_target_OOP
+  DEP_FILE = CMakeFiles/OOP.dir/Prakt_3/main.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/OOP.dir
-  OBJECT_FILE_DIR = CMakeFiles/OOP.dir/Prakt_1
+  OBJECT_FILE_DIR = CMakeFiles/OOP.dir/Prakt_3
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/OOP.dir/Prakt_1/main.cpp.o: CXX_COMPILER__OOP_unscanned_Debug /
 #############################################
 # Link the executable OOP
 
-build OOP: CXX_EXECUTABLE_LINKER__OOP_Debug CMakeFiles/OOP.dir/Prakt_1/main.cpp.o
+build OOP: CXX_EXECUTABLE_LINKER__OOP_Debug CMakeFiles/OOP.dir/Prakt_3/main.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/OOP.dir
   POST_BUILD = :

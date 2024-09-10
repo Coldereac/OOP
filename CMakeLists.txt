@@ -4,4 +4,6 @@ project(OOP)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(OOP
-        Prakt_1/main.cpp)
+       #[[ Prakt_1/main.cpp]]
+        Prakt_3/main.cpp
+)
