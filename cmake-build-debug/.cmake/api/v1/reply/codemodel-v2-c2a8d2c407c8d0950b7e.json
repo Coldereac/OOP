@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.28"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "OOP::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-OOP-Debug-d9f0eb5ef973177204a1.json",
+					"jsonFile" : "target-OOP-Debug-da8b38aaac2302b7d57b.json",
 					"name" : "OOP",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/malinka/CLionProjects/OOP/cmake-build-debug",
-		"source" : "/home/malinka/CLionProjects/OOP"
+		"build" : "C:/Users/Malinka/CLionProjects/OOP/cmake-build-debug",
+		"source" : "C:/Users/Malinka/CLionProjects/OOP"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }
