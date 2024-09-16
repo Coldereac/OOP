@@ -1,5 +1,5 @@
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj: \
- C:\Users\Malinka\CLionProjects\OOP\Prakt_4\main.cpp \
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj: \
+ C:\Users\Malinka\CLionProjects\OOP\Prakt_6\main.cpp \
  C:/Users/Malinka/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  C:/Users/Malinka/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Users/Malinka/AppData/Local/Programs/CLion/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj"
-  "CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj.d"
+  "CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj"
+  "CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj.d"
   "OOP.exe"
   "OOP.exe.manifest"
   "OOP.pdb"

@@ -68,28 +68,28 @@ include CMakeFiles/OOP.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/OOP.dir/flags.make
 
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj: CMakeFiles/OOP.dir/flags.make
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj: C:/Users/Malinka/CLionProjects/OOP/Prakt_4/main.cpp
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj: CMakeFiles/OOP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Malinka\CLionProjects\OOP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj"
-	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj -MF CMakeFiles\OOP.dir\Prakt_4\main.cpp.obj.d -o CMakeFiles\OOP.dir\Prakt_4\main.cpp.obj -c C:\Users\Malinka\CLionProjects\OOP\Prakt_4\main.cpp
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj: CMakeFiles/OOP.dir/flags.make
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj: C:/Users/Malinka/CLionProjects/OOP/Prakt_6/main.cpp
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj: CMakeFiles/OOP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\Malinka\CLionProjects\OOP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj"
+	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj -MF CMakeFiles\OOP.dir\Prakt_6\main.cpp.obj.d -o CMakeFiles\OOP.dir\Prakt_6\main.cpp.obj -c C:\Users\Malinka\CLionProjects\OOP\Prakt_6\main.cpp
 
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OOP.dir/Prakt_4/main.cpp.i"
-	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Malinka\CLionProjects\OOP\Prakt_4\main.cpp > CMakeFiles\OOP.dir\Prakt_4\main.cpp.i
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/OOP.dir/Prakt_6/main.cpp.i"
+	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Malinka\CLionProjects\OOP\Prakt_6\main.cpp > CMakeFiles\OOP.dir\Prakt_6\main.cpp.i
 
-CMakeFiles/OOP.dir/Prakt_4/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OOP.dir/Prakt_4/main.cpp.s"
-	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Malinka\CLionProjects\OOP\Prakt_4\main.cpp -o CMakeFiles\OOP.dir\Prakt_4\main.cpp.s
+CMakeFiles/OOP.dir/Prakt_6/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/OOP.dir/Prakt_6/main.cpp.s"
+	C:\Users\Malinka\AppData\Local\Programs\CLion\bin\mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Malinka\CLionProjects\OOP\Prakt_6\main.cpp -o CMakeFiles\OOP.dir\Prakt_6\main.cpp.s
 
 # Object files for target OOP
 OOP_OBJECTS = \
-"CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj"
+"CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj"
 
 # External object files for target OOP
 OOP_EXTERNAL_OBJECTS =
 
-OOP.exe: CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj
+OOP.exe: CMakeFiles/OOP.dir/Prakt_6/main.cpp.obj
 OOP.exe: CMakeFiles/OOP.dir/build.make
 OOP.exe: CMakeFiles/OOP.dir/linkLibs.rsp
 OOP.exe: CMakeFiles/OOP.dir/objects1.rsp

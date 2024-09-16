@@ -1,4 +1,4 @@
 C:\Users\Malinka\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\Malinka\CLionProjects\OOP -B C:\Users\Malinka\CLionProjects\OOP\cmake-build-debug
 -- Configuring done (0.2s)
--- Generating done (0.0s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/Malinka/CLionProjects/OOP/cmake-build-debug
