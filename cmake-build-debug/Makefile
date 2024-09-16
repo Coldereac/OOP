@@ -128,29 +128,29 @@ OOP/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/build
 .PHONY : OOP/fast
 
-Prakt_3/main.obj: Prakt_3/main.cpp.obj
-.PHONY : Prakt_3/main.obj
+Prakt_4/main.obj: Prakt_4/main.cpp.obj
+.PHONY : Prakt_4/main.obj
 
 # target to build an object file
-Prakt_3/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_3/main.cpp.obj
-.PHONY : Prakt_3/main.cpp.obj
+Prakt_4/main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_4/main.cpp.obj
+.PHONY : Prakt_4/main.cpp.obj
 
-Prakt_3/main.i: Prakt_3/main.cpp.i
-.PHONY : Prakt_3/main.i
+Prakt_4/main.i: Prakt_4/main.cpp.i
+.PHONY : Prakt_4/main.i
 
 # target to preprocess a source file
-Prakt_3/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_3/main.cpp.i
-.PHONY : Prakt_3/main.cpp.i
+Prakt_4/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_4/main.cpp.i
+.PHONY : Prakt_4/main.cpp.i
 
-Prakt_3/main.s: Prakt_3/main.cpp.s
-.PHONY : Prakt_3/main.s
+Prakt_4/main.s: Prakt_4/main.cpp.s
+.PHONY : Prakt_4/main.s
 
 # target to generate assembly for a file
-Prakt_3/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_3/main.cpp.s
-.PHONY : Prakt_3/main.cpp.s
+Prakt_4/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\OOP.dir\build.make CMakeFiles/OOP.dir/Prakt_4/main.cpp.s
+.PHONY : Prakt_4/main.cpp.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... OOP
-	@echo ... Prakt_3/main.obj
-	@echo ... Prakt_3/main.i
-	@echo ... Prakt_3/main.s
+	@echo ... Prakt_4/main.obj
+	@echo ... Prakt_4/main.i
+	@echo ... Prakt_4/main.s
 .PHONY : help
 
 
