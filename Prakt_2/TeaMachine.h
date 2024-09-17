@@ -9,30 +9,36 @@
     Автомат має набір передвстановлених рецептів для приготування чаю.
     Користувач може переглядати рецепти, готувати чай за ними, перевіряти
     залишки сировини (чай, цукор тощо), а також стежити за наявністю інгредієнтів.
+    Додатково користувач може додавати, видаляти та редагувати рецепти.
 */
 
-enum MEASURMENT_TYPE{ML, GRAMS};
+// Одиниці виміру
+enum MEASURMENT_TYPE { ML, GRAMS };
+
+// Типи чаю
+enum TEA_TYPE { BLACK_TEA, GREEN_TEA, HERBAL_TEA };
 
 struct Ingredient {
-    const char* name;               // Назва інгредієнта
+    char* name;                     // Назва інгредієнта
     double quantity;                // Кількість інгредієнта (в грамах, мілілітрах тощо)
-    double threshold;               // Поріг, при якому інгредієнт вважається закінченим
-    MEASURMENT_TYPE measurmentType; // Одиниці, в яких вимірюється кількість інгрідієнта
+    MEASURMENT_TYPE measurmentType; // Одиниці виміру інгредієнта
 };
 
 struct Recipe {
-    const char* name;          // Назва рецепта чаю
-    Ingredient *ingredients;   // Масив інгрідієнтів
+    char* name;                // Назва рецепта чаю
+    Ingredient* ingredients;   // Масив інгрідієнтів
     int brewTime;              // Час заварювання (в секундах)
+    TEA_TYPE teaType;          // Тип чаю
+    int index;                 // Індекс рецепта
 };
 
 struct TeaMachine {
-    Recipe* recipes;           // Массив рецептів
+    Recipe* recipes;           // Масив рецептів
     int recipeCount;           // Кількість доступних рецептів
     Ingredient tea;            // Запаси чаю
     Ingredient sugar;          // Запаси цукру
     Ingredient water;          // Запаси води
-    Ingredient milk;           // Запаси молока (опціонально)
+    Ingredient milk;           // Запаси молока
 };
 
 // Функції для роботи з чайним автоматом
@@ -57,5 +63,14 @@ double checkWater(const TeaMachine& machine);
 
 // Функція для перевірки запасів молока
 double checkMilk(const TeaMachine& machine);
+
+// Додавання нового рецепта
+void addRecipe(TeaMachine& machine, const Recipe& newRecipe);
+
+// Видалення рецепта
+void removeRecipe(TeaMachine& machine, const int recipeIndex);
+
+// Редагування існуючого рецепта
+void editRecipe(TeaMachine& machine, const Recipe& updatedRecipe);
 
 #endif //OOP_TEAMACHINE_H

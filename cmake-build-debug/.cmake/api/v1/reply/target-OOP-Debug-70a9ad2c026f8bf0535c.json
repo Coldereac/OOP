@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Prakt_1"
+			"path" : "OOP"
 		}
 	],
 	"backtrace" : 1,
@@ -53,7 +53,7 @@
 			]
 		}
 	],
-	"id" : "Prakt_1::@6890427a1f51a3e7e1df",
+	"id" : "OOP::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,8 +69,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Prakt_1",
-	"nameOnDisk" : "Prakt_1",
+	"name" : "OOP",
+	"nameOnDisk" : "OOP",
 	"paths" : 
 	{
 		"build" : ".",
@@ -91,7 +91,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "Prakt_6/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
