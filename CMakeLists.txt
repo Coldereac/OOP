@@ -8,4 +8,5 @@ add_executable(OOP
        #[[ Prakt_3/main.cpp]]
         #[[Prakt_4/main.cpp]]
         Prakt_6/main.cpp
+        Prakt_2/TeaMachine.h
 )
