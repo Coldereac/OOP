@@ -60,8 +60,8 @@ int main() {
     arr[2] = Rectangle();
     arr[2].setHeight(34.5);
     arr[1].setWidth(67.46);
-    for (int i = 0; i < 3; i++) {
-        arr[i].display();
+    for (auto i : arr) {
+        i.display();
     }
 
 
