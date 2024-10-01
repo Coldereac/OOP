@@ -70,7 +70,7 @@ double calculateLengthOutsideClass(VectorMath &vector) {
     }
     return sqrt(sum);
 
-    //or just use vector.calculateLength
+    //or just use vector.calculateLength()
 }
 
 int main() {
@@ -93,7 +93,22 @@ int main() {
     copyExample.output();
     cout << "External length calculation: " << calculateLengthOutsideClass(copyExample) << endl;
 
-    // //Array of Vectors
+
+    //Pointer
+    VectorMath *starVector = new VectorMath(3);
+    starVector->setCoords(0, 3.1);
+    starVector->setCoords(1, -9.1);
+    starVector->setCoords(2, 5.1);
+    cout << endl << "Pointer to new vector: " << endl;
+    starVector->output();
+    cout << "External length calculation: " << calculateLengthOutsideClass(*starVector) << endl;
+    delete starVector;
+    cout << endl << "Pointer to old vector: " << endl;
+    starVector = &vectorObject;
+    starVector->output();
+    cout << "External length calculation: " << calculateLengthOutsideClass(*starVector) << endl;
+
+    //Array of Vectors
     vector<VectorMath> vectors(4);
     vectors[0].setSize(3);
     vectors[0].setCoords(0, 5.2);
@@ -116,15 +131,6 @@ int main() {
         vector.output();
         cout << "External length calculation: " << calculateLengthOutsideClass(vector) << endl;
     }
-
-    VectorMath *starVector = new VectorMath(3);
-    starVector->setCoords(0, 3.1);
-    starVector->setCoords(1, -9.1);
-    starVector->setCoords(2, 5.1);
-    cout << endl << "Pointer to vector: " << endl;
-    starVector->output();
-    cout << "External length calculation: " << calculateLengthOutsideClass(*starVector) << endl;
-    delete starVector;
 
     return 0;
 }
