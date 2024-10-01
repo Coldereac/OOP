@@ -11,7 +11,7 @@
     перевіряти залишки сировини (чай, цукор тощо), а також стежити за наявністю інгредієнтів.
     Додатково користувач може додавати, видаляти та редагувати рецепти.
 */
-
+//Доробити Інгрідієнти і як вони відображаються(спосіб порівняння)
 // Одиниці виміру
 enum MEASURMENT_TYPE { ML, GRAMS };
 
@@ -39,16 +39,17 @@ struct TeaMachine {
     Ingredient sugar;   // Запаси цукру
     Ingredient water;   // Запаси води
     Ingredient milk;    // Запаси молока
+    const double MIN_TEA = 10;      //Grams
+    const double MIN_SUGAR = 20;    //Grams
+    const double MIN_WATER = 200;   //ML
+    const double MIN_MILK = 100;    //ML
+    const double MAX_TEA = 500;     //Grams
+    const double MAX_SUGAR = 500;   //Grams
+    const double MAX_WATER = 1000;  //ML
+    const double MAX_MILK = 500;    //ML
 };
 
-const double MIN_TEA = 10;      //Grams
-const double MIN_SUGAR = 20;    //Grams
-const double MIN_WATER = 200;   //ML
-const double MIN_MILK = 100;    //ML
-const double MAX_TEA = 500;     //Grams
-const double MAX_SUGAR = 500;   //Grams
-const double MAX_WATER = 1000;  //ML
-const double MAX_MILK = 500;    //ML
+
 
 // Функції для роботи з чайним автоматом
 

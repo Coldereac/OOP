@@ -1,111 +1,130 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
+#include <vector>
+
 
 using namespace std;
 
-class Vector {
-private:
+class VectorMath {
     int size;
-    double *coordinates;
+    vector<double> coordinates;
 
 public:
-    Vector() {
+    VectorMath() {
         this->size = 1;
-        this->coordinates = new double[this->size];
-        this->coordinates[0] = 0.0;
+        this->coordinates.reserve(this->size);
+        this->coordinates[0] = 0;
     }
 
-    Vector(int size) : size(size) {
-        this->coordinates = new double[this->size];
-        for (int i = 0; i < this->size; i++) {
-            this->coordinates[i] = 0.0;
-        }
+    VectorMath(int size) : size(size), coordinates(size) {
+        fill(coordinates.begin(), coordinates.end(), 0);
     }
 
-    Vector(Vector &copy) : size(copy.size) {
-        this->coordinates = new double[this->size];
-        for (int i = 0; i < this->size; i++) {
-            this->coordinates[i] = copy.coordinates[i];
-        }
+    VectorMath(VectorMath &copyFrom) : size(copyFrom.size), coordinates(copyFrom.coordinates) {
     }
 
-    int getSize() {
+    ~VectorMath() = default;
+
+    int getSize() const {
         return this->size;
     }
 
-    double *getCoords() {
+    void setSize(int size) {
+        this->size = size;
+        this->coordinates.reserve(this->size);
+    }
+
+    const vector<double> &getCoords() const {
         return this->coordinates;
     }
 
     void setCoords(int i, double value) {
-        this->coordinates[i] = value;
+        if (i >= 0 && i < this->size) {
+            this->coordinates[i] = value;
+        }
     }
 
-    void output() {
-        cout << "Size: " << size << " Coordinates: ";
+    void output() const {
+        cout << "Size: " << size << "\n Coordinates: ";
         for (int i = 0; i < size; i++) {
             cout << coordinates[i] << " ";
         }
-        cout << "Length: " << calculateLength() << endl;
+        cout << "Length of Vector: " << calculateLength() << endl;
     }
 
 
-    ~Vector() {
-        delete[] coordinates;
-    }
-
-    double calculateLength() {
+    double calculateLength() const {
         double sum = 0.0;
         for (int i = 0; i < size; i++) {
             sum += pow(coordinates[i], 2);
         }
         return sqrt(sum);
     }
-
 };
 
-double calculateLength2(Vector &vector) {
+double calculateLengthOutsideClass(VectorMath &vector) {
     double sum = 0.0;
     for (int i = 0; i < vector.getSize(); i++) {
         sum += pow(vector.getCoords()[i], 2);
     }
     return sqrt(sum);
+
+    //or just use vector.calculateLength
 }
 
 int main() {
-    cout << endl << "Object Vector: " << endl;
-    Vector vect = Vector(3);
-    vect.setCoords(0, 1.4);
-    vect.setCoords(1, 5.7);
-    vect.setCoords(2, -31.4);
-    vect.output();
-    cout << "External length calculation: " << calculateLength2(vect) << endl;
+    cout << fixed << setprecision(2);
 
-    Vector arr[] = {Vector(2), Vector(3), Vector(1)};
-    arr[0].setCoords(0, 3.76);
-    arr[0].setCoords(1, 8.52);
-    arr[1].setCoords(0, 54);
-    arr[1].setCoords(1, -3.5);
-    arr[1].setCoords(2, 7.54);
-    arr[2].setCoords(0, 3);
+    //Object Vector
+    VectorMath vectorObject = VectorMath(2);
+    cout << endl << "Object Vector: " << endl;
+    cout << "Vector just after creation: " << endl;
+    vectorObject.output();
+    vectorObject.setCoords(0, 5.4);
+    vectorObject.setCoords(1, 20.9);
+    cout << "Vector with setted coordinates: " << endl;
+    vectorObject.output();
+    cout << "External length calculation: " << calculateLengthOutsideClass(vectorObject) << endl;
+
+    //Copying
+    VectorMath copyExample = VectorMath(vectorObject);
+    cout << endl << "Example of copying: " << endl;
+    copyExample.output();
+    cout << "External length calculation: " << calculateLengthOutsideClass(copyExample) << endl;
+
+    // //Array of Vectors
+    vector<VectorMath> vectors(4);
+    vectors[0].setSize(3);
+    vectors[0].setCoords(0, 5.2);
+    vectors[0].setCoords(1, 9);
+    vectors[0].setCoords(2, 44);
+
+    vectors[1].setSize(2);
+    vectors[1].setCoords(0, 999);
+    vectors[1].setCoords(1, -1);
+
+    vectors[2].setSize(4);
+    vectors[2].setCoords(0, -20);
+    vectors[2].setCoords(1, 5);
+    vectors[2].setCoords(2, 99);
+    vectors[2].setCoords(3, 44);
+
+    vectors[3].setCoords(0, 999);
     cout << endl << "Array of vectors: " << endl;
-    for (int i = 0; i < 3; i++) {
-        arr[i].output();
-        cout << "External length calculation: " << calculateLength2(vect) << endl;
+    for (auto &vector: vectors) {
+        vector.output();
+        cout << "External length calculation: " << calculateLengthOutsideClass(vector) << endl;
     }
 
+    VectorMath *starVector = new VectorMath(3);
+    starVector->setCoords(0, 3.1);
+    starVector->setCoords(1, -9.1);
+    starVector->setCoords(2, 5.1);
     cout << endl << "Pointer to vector: " << endl;
-    Vector *vectPos = new Vector(3);
-    vectPos->setCoords(0, 3.1);
-    vectPos->setCoords(1, -9.1);
-    vectPos->setCoords(2, 5.1);
-    vectPos->output();
-    cout << "External length calculation: " << calculateLength2(*vectPos) << endl;
-    delete vectPos;
+    starVector->output();
+    cout << "External length calculation: " << calculateLengthOutsideClass(*starVector) << endl;
+    delete starVector;
 
-    cout << endl << "Example of copying: " << endl;
-    Vector copy = Vector(vect);
-    copy.output();
-    cout << "External length calculation: " << calculateLength2(copy) << endl;
     return 0;
 }
