@@ -49,33 +49,8 @@ struct TeaMachine {
     const double MAX_MILK = 500;    //ML
 };
 
-
-
-// Функції для роботи з чайним автоматом
-
-// Функція для приготування чаю за рецептом
-void prepareTea(const TeaMachine &machine, const Recipe &recipe);
-
-// Функція для перегляду доступних рецептів
-void displayRecipes(const TeaMachine &machine);
-
-// Функція для перевірки залишків інгредієнтів
-bool checkIngredients(const TeaMachine &machine, const Recipe &recipe);
-
 // Функція для приготування чаю без рецепта, по ходу діла.
 void prepareTeaWithoutRecipe(const TeaMachine &machine);
-
-// Функція для перевірки запасів чаю
-bool checkTea(const TeaMachine &machine);
-
-// Функція для перевірки запасів цукру
-bool checkSugar(const TeaMachine &machine);
-
-// Функція для перевірки запасів води
-bool checkWater(const TeaMachine &machine);
-
-// Функція для перевірки запасів молока
-bool checkMilk(const TeaMachine &machine);
 
 // Додавання нового рецепта
 void addRecipe(TeaMachine &machine, const Recipe &newRecipe);
