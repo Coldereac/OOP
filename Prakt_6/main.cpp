@@ -7,48 +7,46 @@
 using namespace std;
 
 class VectorMath {
-    int size;
     vector<double> coordinates;
 
 public:
     VectorMath() {
-        this->size = 1;
-        this->coordinates.reserve(this->size);
+        this->coordinates.resize(1);
         this->coordinates[0] = 0;
     }
 
-    VectorMath(int size) : size(size), coordinates(size) {
-        fill(coordinates.begin(), coordinates.end(), 0);
+    VectorMath(int size) {
+        coordinates.resize(size);
+        fill(coordinates.begin(), coordinates.end(), 1);
     }
 
-    VectorMath(VectorMath &copyFrom) : size(copyFrom.size), coordinates(copyFrom.coordinates) {
+    VectorMath(VectorMath &copyFrom): coordinates(copyFrom.coordinates) {
     }
 
     ~VectorMath() = default;
 
-    int getSize() const {
-        return this->size;
-    }
-
     void setSize(int size) {
-        this->size = size;
-        this->coordinates.reserve(this->size);
+        this->coordinates.resize(size);
     }
 
     const vector<double> &getCoords() const {
         return this->coordinates;
     }
 
-    void setCoords(int i, double value) {
-        if (i >= 0 && i < this->size) {
+    void setCoord(int i, double value) {
+        if (i >= 0 && i < coordinates.capacity()) {
             this->coordinates[i] = value;
         }
     }
 
+    void setCoords(const vector<double> &coordinates) {
+        this->coordinates = coordinates;
+    }
+
     void output() const {
-        cout << "Size: " << size << "\n Coordinates: ";
-        for (int i = 0; i < size; i++) {
-            cout << coordinates[i] << " ";
+        cout << "Size: " << coordinates.size() << "\n Coordinates: ";
+        for (double coordinate: coordinates) {
+            cout << coordinate << " ";
         }
         cout << "Length of Vector: " << calculateLength() << endl;
     }
@@ -56,6 +54,7 @@ public:
 
     double calculateLength() const {
         double sum = 0.0;
+        int size = coordinates.size();
         for (int i = 0; i < size; i++) {
             sum += pow(coordinates[i], 2);
         }
@@ -65,7 +64,8 @@ public:
 
 double calculateLengthOutsideClass(VectorMath &vector) {
     double sum = 0.0;
-    for (int i = 0; i < vector.getSize(); i++) {
+    int size = vector.getCoords().size();
+    for (int i = 0; i < size; i++) {
         sum += pow(vector.getCoords()[i], 2);
     }
     return sqrt(sum);
@@ -81,8 +81,8 @@ int main() {
     cout << endl << "Object Vector: " << endl;
     cout << "Vector just after creation: " << endl;
     vectorObject.output();
-    vectorObject.setCoords(0, 5.4);
-    vectorObject.setCoords(1, 20.9);
+    vectorObject.setCoord(0, 5.4);
+    vectorObject.setCoord(1, 20.9);
     cout << "Vector with setted coordinates: " << endl;
     vectorObject.output();
     cout << "External length calculation: " << calculateLengthOutsideClass(vectorObject) << endl;
@@ -96,9 +96,7 @@ int main() {
 
     //Pointer
     VectorMath *starVector = new VectorMath(3);
-    starVector->setCoords(0, 3.1);
-    starVector->setCoords(1, -9.1);
-    starVector->setCoords(2, 5.1);
+    starVector->setCoords(vector<double>{1.4, 2.9, -3});
     cout << endl << "Pointer to new vector: " << endl;
     starVector->output();
     cout << "External length calculation: " << calculateLengthOutsideClass(*starVector) << endl;
@@ -110,22 +108,13 @@ int main() {
 
     //Array of Vectors
     vector<VectorMath> vectors(4);
-    vectors[0].setSize(3);
-    vectors[0].setCoords(0, 5.2);
-    vectors[0].setCoords(1, 9);
-    vectors[0].setCoords(2, 44);
+    vectors[0].setCoords(vector<double>{20, 30, -20});
 
-    vectors[1].setSize(2);
-    vectors[1].setCoords(0, 999);
-    vectors[1].setCoords(1, -1);
+    vectors[1].setCoords(vector<double>{10, -5});
 
-    vectors[2].setSize(4);
-    vectors[2].setCoords(0, -20);
-    vectors[2].setCoords(1, 5);
-    vectors[2].setCoords(2, 99);
-    vectors[2].setCoords(3, 44);
+    vectors[2].setCoords(vector<double>{999, -9999, 0, 294.124});
 
-    vectors[3].setCoords(0, 999);
+    vectors[3].setCoord(0, 999);
     cout << endl << "Array of vectors: " << endl;
     for (auto &vector: vectors) {
         vector.output();
