@@ -26,6 +26,8 @@ public:
     virtual void display() const {
         cout << "X: " << getX() << ", Y: " << getY() << endl;
     }
+
+    friend class PointWithMessage;
 };
 
 class PointWithMessage : public Point {
@@ -33,14 +35,14 @@ class PointWithMessage : public Point {
 
 public:
     PointWithMessage(int x, int y, const char *str): Point(x, y), message(str) {
-    };
+    }
 
     string getMessage() const {
         return message;
     }
 
     int getX() const override {
-        return Point::getX() - message.length();
+        return x - message.length();
     }
 
     void display() const override {
