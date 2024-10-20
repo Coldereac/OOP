@@ -54,7 +54,7 @@ public:
         return getX() * 5 + getY() * 10 + message.length() * 2;
     }
 
-    ~PointWithMessage() override = default;
+    ~PointWithMessage() override = default; //
 };
 
 int main() {
