@@ -53,6 +53,8 @@ public:
     int hash() const override {
         return getX() * 5 + getY() * 10 + message.length() * 2;
     }
+
+    ~PointWithMessage() override = default;
 };
 
 int main() {
