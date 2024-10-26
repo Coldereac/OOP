@@ -2,6 +2,7 @@
 using namespace std;
 
 class Point {
+protected:
     int x;
     int y;
 
@@ -26,8 +27,6 @@ public:
     virtual void display() const {
         cout << "X: " << getX() << ", Y: " << getY() << endl;
     }
-
-    friend class PointWithMessage;
 };
 
 class PointWithMessage : public Point {
@@ -54,33 +53,12 @@ public:
         return getX() * 5 + getY() * 10 + message.length() * 2;
     }
 
-    ~PointWithMessage() override = default; //
+    ~PointWithMessage() override = default;
 };
 
 int main() {
-    cout << "Poińt: " << endl;
-    Point *pml = new Point(1, 2);
-    pml->display();
-    cout << "Hash in Point: " << pml->hash() << endl;
-
-    cout << endl << "Point with message early inheritance:" << endl;
-    auto *pm = new PointWithMessage(20, 30, "Hello, World");
-    pm->display();
-    cout << "Hash in Point with Message: " << pm->hash() << endl;
-
-    delete pml;
-    cout << endl << "Point with message late inheritance:" << endl;
-    pml = new PointWithMessage(40, 20, "Goodbye, World");
-
-    pml->display();
-    cout << "Hash in Point with Message: " << pml->hash() << endl;
-
-    delete pml;
-    cout << endl << "Point with message late inheritance one more time:" << endl;
-    pml = pm;
-    pml->display();
-    cout << "Hash in Point with Message: " << pml->hash() << endl;
+    Point *pm = new PointWithMessage(20, 30, "Hello, World");
+    cout << ((PointWithMessage *)pm)->getMessage();
     delete pm;
-
     return 0;
 }
