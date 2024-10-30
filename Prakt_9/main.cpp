@@ -104,4 +104,5 @@ int main() {
         figure->display();
         cout << endl;
     }
+    delete [] figures;
 }
