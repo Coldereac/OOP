@@ -38,25 +38,11 @@ public:
         : Rectangle(x, y, width, height) {
     }
 
-    void moveTo(int newX, int newY) {
-        Rectangle::moveTo(newX, newY);
-    }
-
-    [[nodiscard]] int getArea() const {
-        return Rectangle::getArea();
-    }
-
-    void printPosition() const {
-        Rectangle::printPosition();
-    }
-
-    [[nodiscard]] int getWidth() const {
-        return Rectangle::getWidth();
-    }
-
-    [[nodiscard]] int getHeight() const {
-        return Rectangle::getHeight();
-    }
+    using Rectangle::printPosition;
+    using Rectangle::moveTo;
+    using Rectangle::getArea;
+    using Rectangle::getWidth;
+    using Rectangle::getHeight;
 };
 
 class Window2 {
@@ -71,7 +57,7 @@ public:
         rectangle.moveTo(newX, newY);
     }
 
-    [[nodiscard]] int area() const {
+    [[nodiscard]] int getArea() const {
         return rectangle.getArea();
     }
 
@@ -100,7 +86,7 @@ int main() {
 
     std::cout << "\nWindow2:\n";
     win2.printPosition();
-    std::cout << "Area: " << win2.area() << "\n";
+    std::cout << "Area: " << win2.getArea() << "\n";
     win2.moveTo(15, 15);
     win2.printPosition();
 

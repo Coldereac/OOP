@@ -24,8 +24,14 @@ class Fraction {
         return b;
     }
 
+    void reduce() {
+        int gcd = findGcd(std::abs(numerator), denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+    }
+
 public:
-    explicit Fraction(int numerator = 0, int denominator = 1) {
+    Fraction(int numerator = 0, int denominator = 1) {
         if (denominator == 0) {
             throw std::invalid_argument("Denominator cannot be zero");
         }
@@ -40,75 +46,22 @@ public:
         }
     }
 
-    explicit Fraction(double value, int precision = 1000000000) {
-        this->numerator = static_cast<int>(value * precision);
-        this->denominator = precision;
+    Fraction(double value, int precision = 1000000000) {
+        denominator = 1000000;
+        numerator = static_cast<int>(value * denominator);
         reduce();
     }
 
-    explicit Fraction(float value, int precision = 1000000000) {
-        this->numerator = static_cast<int>(value * precision);
-        this->denominator = precision;
-        reduce();
-    }
-
-    Fraction(const Fraction &fraction) {
-        this->numerator = fraction.numerator;
-        this->denominator = fraction.denominator;
-    }
-
-    void reduce() {
-        int gcd = findGcd(std::abs(numerator), denominator);
-        numerator /= gcd;
-        denominator /= gcd;
-    }
+    Fraction(const Fraction &fraction) = default;
 
 
-    Fraction operator+(const Fraction &other) const {
-        return Fraction(numerator * other.denominator + other.numerator * denominator, denominator * other.denominator);
-    }
+    friend const Fraction operator+(const Fraction &first, const Fraction &second);
 
-    Fraction operator-(const Fraction &other) const {
-        return Fraction{numerator * other.denominator - other.numerator * denominator, denominator * other.denominator};
-    }
+    friend const Fraction operator-(const Fraction &first, const Fraction &second);
 
-    Fraction operator*(const Fraction &other) const {
-        return Fraction{numerator * other.numerator, denominator * other.denominator};
-    }
+    friend const Fraction operator*(const Fraction &first, const Fraction &second);
 
-    Fraction operator/(const Fraction &other) const {
-        if (other.numerator == 0) {
-            throw std::invalid_argument("Division by zero");
-        }
-        return Fraction{numerator * other.denominator, denominator * other.numerator};
-    }
-
-    template<typename T>
-    std::enable_if_t<std::is_integral_v<T> || std::is_floating_point_v<T>, Fraction>
-    operator+(T value) const {
-        return *this + Fraction(value);
-    }
-
-    template<typename T>
-    std::enable_if_t<std::is_integral_v<T> || std::is_floating_point_v<T>, Fraction>
-    operator-(T value) const {
-        return *this - Fraction(value);
-    }
-
-    template<typename T>
-    std::enable_if_t<std::is_integral_v<T> || std::is_floating_point_v<T>, Fraction>
-    operator*(T value) const {
-        return *this * Fraction(value);
-    }
-
-    template<typename T>
-    std::enable_if_t<std::is_integral_v<T> || std::is_floating_point_v<T>, Fraction>
-    operator/(T value) const {
-        if (value == 0) {
-            throw std::invalid_argument("Cannot divide by zero.");
-        }
-        return *this / Fraction(value);
-    }
+    friend const Fraction operator/(const Fraction &first, const Fraction &second);
 
     friend Fraction &operator++(Fraction &frac);
 
@@ -134,6 +87,31 @@ public:
 
     friend bool operator>=(const Fraction &left, const Fraction &right);
 };
+
+const Fraction operator+(const Fraction &first, const Fraction &second) {
+    return Fraction{
+        first.numerator * second.denominator + second.numerator * first.denominator,
+        first.denominator * second.denominator
+    };
+}
+
+const Fraction operator*(const Fraction &first, const Fraction &second) {
+    return Fraction{first.numerator * second.numerator, first.denominator * second.denominator};
+}
+
+const Fraction operator/(const Fraction &first, const Fraction &second) {
+    if (second.numerator == 0) {
+        throw std::invalid_argument("Division by zero");
+    }
+    return Fraction{first.numerator * second.denominator, first.denominator * second.numerator};
+}
+
+const Fraction operator-(const Fraction &first, const Fraction &second) {
+    return Fraction{
+        first.numerator * second.denominator - second.numerator * first.denominator,
+        first.denominator * second.denominator
+    };
+}
 
 Fraction &operator++(Fraction &frac) {
     frac.numerator += frac.denominator;
@@ -221,11 +199,13 @@ int main() {
         std::cout << e.what() << std::endl;
     }
     std::cout << "Fraction + int: " << fraction1 + 2 << std::endl;
+    std::cout << "int + Fraction: " << 2 + fraction1 << std::endl;
     std::cout << "Fraction - int: " << fraction1 - 1 << std::endl;
     std::cout << "Fraction * int: " << fraction1 * 3 << std::endl;
     std::cout << "Fraction / int: " << fraction1 / 2 << std::endl;
 
     std::cout << "Fraction + float: " << fraction1 + 0.1f << std::endl;
+    std::cout << "double + Fraction: " << 0.1 + fraction1 << std::endl;
     std::cout << "Fraction - double: " << fraction1 - 0.75 << std::endl;
     std::cout << "Fraction * double: " << fraction1 * 1.5 << std::endl;
     std::cout << "Fraction / double: " << fraction1 / 0.25 << std::endl;
