@@ -54,7 +54,6 @@ public:
 
     Fraction(const Fraction &fraction) = default;
 
-
     friend const Fraction operator+(const Fraction &first, const Fraction &second);
 
     friend const Fraction operator-(const Fraction &first, const Fraction &second);

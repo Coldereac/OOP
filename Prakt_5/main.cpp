@@ -105,9 +105,9 @@ public:
           greenTea(Component(Ingredient(GREEN_TEA, GRAMS), std::clamp(greenTea, MIN_TEA, MAX_TEA))),
           herbalTea(Component(Ingredient(HERBAL_TEA, GRAMS), std::clamp(herbalTea, MIN_TEA, MAX_TEA))),
           sugar(Component(Ingredient(SUGAR, GRAMS), std::clamp(sugar, MIN_SUGAR, MAX_SUGAR))),
-          water(Component(Ingredient(WATER, ML), std::clamp(water, MIN_WATER, MAX_WATER))),
           milk(Component(Ingredient(MILK, ML), std::clamp(milk, MIN_MILK, MAX_MILK))),
           brewTime(std::clamp(brewTime, MIN_BREW_TIME, MAX_BREW_TIME)) {
+        this->water = Component(Ingredient(ML, WATER), water);
     }
 
     // Метод для відображення інформації про рецепт
