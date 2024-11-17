@@ -8,7 +8,7 @@ class BigInt {
     string digits;
 
 public:
-    BigInt(long long nr = 0) {
+    BigInt(unsigned long long nr = 0) {
         do {
             digits.push_back(nr % 10);
             nr /= 10;
@@ -20,7 +20,7 @@ public:
         for (int i = strlen(s) - 1; i >= 0; i--) {
             if (!isdigit(s[i]))
                 throw invalid_argument("Wrong number");
-            char digit = (s[i] - '0') + '0';
+            char digit = (s[i] - '0');
             digits.push_back(digit);
         }
     }
@@ -32,12 +32,6 @@ public:
     friend bool empty(const BigInt &a);
 
     friend int Length(const BigInt &a);
-
-    int operator[](const int index) const {
-        if (digits.size() <= index || index < 0)
-            throw invalid_argument("ERROR");
-        return digits[index];
-    }
 
     friend const BigInt operator+(const BigInt &, const BigInt &);
 
@@ -80,24 +74,30 @@ int Length(const BigInt &a) {
 
 
 const BigInt operator+(const BigInt &a, const BigInt &b) {
-    BigInt temp(a);
+    BigInt result = a;
     int t = 0, s, i;
     int n = Length(a), m = Length(b);
+
     if (m > n)
-        temp.digits.append(m - n, 0);
-    n = Length(a);
-    for (i = 0; i < n; i++) {
+        result.digits.append(m - n, 0);
+
+    int length = Length(result);
+    for (i = 0; i < length; i++) {
         if (i < m)
-            s = (a.digits[i] + b.digits[i]) + t;
+            s = (result.digits[i] + b.digits[i]) + t;
         else
-            s = a.digits[i] + t;
+            s = result.digits[i] + t;
+
         t = s / 10;
-        temp.digits[i] = (s % 10);
+        result.digits[i] = (s % 10);
     }
+
     if (t)
-        temp.digits.push_back(t);
-    return temp;
+        result.digits.push_back(t);
+
+    return result;
 }
+
 
 const BigInt operator-(const BigInt &a, const BigInt &b) {
     BigInt temp(a);
@@ -127,7 +127,7 @@ const BigInt operator-(const BigInt &a, const BigInt &b) {
 const BigInt operator*(const BigInt &a, const BigInt &b) {
     BigInt temp(a);
     if (empty(a) || empty(b)) {
-        temp = 0ll;
+        temp = 0ull;
         return temp;
     }
     int n = a.digits.size(), m = b.digits.size();
@@ -191,7 +191,9 @@ ostream &operator<<(ostream &os, const BigInt &a) {
 
 int main() {
     BigInt a("12345678901234567890");
+    cout << "a = " << a << endl;
     BigInt b("98765432109876543210");
+    cout << "b = " << b << endl;
     try {
         BigInt c("Hello");
     } catch (exception &e) {
@@ -199,17 +201,18 @@ int main() {
     }
     char *number = "98765432109876543210";
     cout << "a + b = " << a + b << endl;
-    cout << "a - b = " << b - a << endl;
+    cout << "b - a = " << b - a << endl;
     cout << "a * b = " << a * b << endl;
     cout << "a / b = " << a / b << endl;
     cout << "a - 1234567890(long) = " << a - 1234567890ll << endl;
-    cout << "1234567890(long) - a = " << 1234567890ll + a << endl;
+    cout << "1234567890(long) + b = " << 1234567890ll + b << endl;
     cout << "b * 987654321(char*) = " << b * number << endl;
+    cout << "987654321(char*) * b = " << number * b << endl;
     cout << "98765432109876543210(char*) / b = " << number / b << endl;
 
     //Errors
     try {
-        cout << a / 0ll;
+        cout << a / 0ull;
     } catch (exception &e) {
         cout << "Dividing by zero error: " << e.what() << endl;
     }
